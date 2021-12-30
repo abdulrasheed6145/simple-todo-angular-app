@@ -6,5 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'simple-todo-app';
+
+  todos : string[] = [];
+  new_todo:string = '';
+
+
+  // here is the submit function which adds the todos
+
+  submitTodo(){
+    if(!!this.new_todo){
+      this.todos.unshift(this.new_todo);
+      this.new_todo = '';
+    }
+  }
+
+
+// here is the function which removes the todo from list
+
+  taskCompleted(index:number){
+    this.todos.splice(index,1);
+  }
+
 }
